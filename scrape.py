@@ -1,7 +1,9 @@
-from selenium import webdriver
-from webdriver_manager.chrome import ChromeDriverManager
+# found a easier library to use
+from playwright.sync_api import sync_playwright
+import time
+import csv
 
-# As there are possibilities of different chrome
-# browser and we are not sure under which it get
-# executed let us use the below syntax
-driver = webdriver.Chrome(ChromeDriverManager().install())
+def scrape_reviews(place_url, max_reviews=250)
+    reviews = []
+
+    with sync_playwright() as p:
