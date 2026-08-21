@@ -82,7 +82,7 @@ def scrape_reviews(place_url, max_reviews=250):
                     "date": date,
                     "has_reply": has_reply,
                     "response_text": response_block,
-                    "respose_date": response_date
+                    "response_date": response_date
                 })
             except Exception as e:
                 # If one card fails (missing element etc.), log it and move on
@@ -100,7 +100,7 @@ if __name__ == "__main__":
     data = scrape_reviews(url)
 
     with open("mascot_reviews.csv", "w", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=["name", "rating", "text", "date"])
+        writer = csv.DictWriter(f, fieldnames=["name", "rating", "text", "date", "has_reply", "response_text", "response_date"])
         writer.writeheader()
         writer.writerows(data)
 
