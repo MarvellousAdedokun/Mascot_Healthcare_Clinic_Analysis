@@ -69,7 +69,7 @@ def scrape_reviews(place_url, max_reviews=250):
                 date = date_el.inner_text() if date_el else ""
                 text_el = card.query_selector("span.wiI7pd")
                 text = text_el.inner_text() if text_el else ""
-                response_block = card.query_selector("span.CDe7pd")
+                response_block = card.query_selector("div.CDe7pd")
                 has_reply = response_block is not None
                 reviews.append({
                     "name": name,
