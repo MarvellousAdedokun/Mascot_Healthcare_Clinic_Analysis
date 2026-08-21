@@ -72,7 +72,7 @@ def scrape_reviews(place_url, max_reviews=250):
                 response_el = card.query_selector("div.wiI7pd") 
                 response_block = response_el.inner_text() if response_el else ""
                 response_date_el = card.query_selector("span.DZSIDd")
-                respose_date = response_date_el.inner_text() if date_el else ""
+                response_date = response_date_el.inner_text() if response_date_el else ""
 
                 has_reply = response_el is not None
                 reviews.append({
@@ -82,7 +82,7 @@ def scrape_reviews(place_url, max_reviews=250):
                     "date": date,
                     "has_reply": has_reply,
                     "response_text": response_block,
-                    "respose_date": respose_date
+                    "respose_date": response_date
                 })
             except Exception as e:
                 # If one card fails (missing element etc.), log it and move on
